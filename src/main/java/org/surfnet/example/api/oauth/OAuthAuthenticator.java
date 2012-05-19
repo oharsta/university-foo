@@ -47,6 +47,11 @@ public class OAuthAuthenticator implements Authenticator<String, ClientDetails> 
    */
   @Override
   public Optional<ClientDetails> authenticate(String bearer) throws AuthenticationException {
+    /*
+     * Hook for the application to enforce that a REST call can only access the
+     * data for the student that authorized the client application (which we
+     * currently don't do)
+     */
     return tokenStore.getClientDetailsByAccessToken(bearer);
   }
 }

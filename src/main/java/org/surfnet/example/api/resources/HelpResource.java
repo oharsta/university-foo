@@ -18,30 +18,24 @@
  */
 package org.surfnet.example.api.resources;
 
-import com.yammer.metrics.core.HealthCheck;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+import org.surfnet.example.api.views.HelpView;
 
 /**
- * {@link HealthCheck} that currently does not check anything (but does ensures
- * we don't get the annoying startup message that we don't have HealthChecks;-)
- * 
+ * Help freemarker endpoint
+ *
  */
-public class StudentHealthCheck extends HealthCheck {
+@Path("/help")
+@Produces(MediaType.TEXT_HTML)
+public class HelpResource {
 
-  /**
-   * @param name
-   */
-  public StudentHealthCheck(String name) {
-    super(name);
+  
+  @GET
+  public HelpView help() {
+    return new HelpView();
   }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see com.yammer.metrics.core.HealthCheck#check()
-   */
-  @Override
-  protected Result check() throws Exception {
-    return Result.healthy();
-  }
-
 }

@@ -29,6 +29,7 @@ import org.surfnet.example.api.oauth.OAuthAuthenticator;
 import org.surfnet.example.api.oauth.OAuthAuthorizeResource;
 import org.surfnet.example.api.oauth.OAuthTokenStore;
 import org.surfnet.example.api.oauth.PrincipalService;
+import org.surfnet.example.api.resources.HelpResource;
 import org.surfnet.example.api.resources.StudentHealthCheck;
 import org.surfnet.example.api.resources.StudentResource;
 
@@ -82,14 +83,21 @@ public class UniversityFooService extends Service<UniversityFooConfiguration> {
     /*
      * Add all university Resources
      */
+    
+    /*
+     * Hook for expanding the currently very limited REST api
+     */
     environment.addResource(new StudentResource(principalService));
-
+    
+    /*
+     * Hook for implementing the help section (analogue to http://developer.yammer.com/api/oauth2.html)
+     */
+    environment.addResource(new HelpResource());
     /*
      * The OAuth endpoint for obtaining an access token
      */
     environment.addResource(new OAuthAccessTokenResource(tokenStore));
     environment.addResource(new OAuthAuthorizeResource(tokenStore, principalService));
-
   }
 
 }

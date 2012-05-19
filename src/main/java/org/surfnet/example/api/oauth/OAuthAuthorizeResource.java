@@ -73,12 +73,21 @@ public class OAuthAuthorizeResource {
   String clientId, @FormParam("state")
   String state) {
     /*
+     * Hook for implementing consent screen (which we currently don't have) 
+     */
+    
+    /*
+     * From the OAuth spec:
+     * 
      * HTTP/1.1 302 Found Location:
      * https://client.example.com/cb?code=SplxlOBeZQQYbYS6WxSbIA &state=xyz
      */
     Student principal = principalService.getPrincipal(new UsernamePasswordCredentials(username, password));
     String authorizationCode = tokenStore.storeAuthorizationCode(new ClientDetails().setResponseType("code")
         .setClientId(clientId).setRedirectUri(redirectUri).setScope("read").setState(state).setPrincipal(principal));
+    /*
+     * Hook for implementation of Implicit Grant flow
+     */
     if (principal != null && authorizationCode != null) {
       String uri = String.format(redirectUri.concat("?").concat("code=%s").concat("&state=%s"), authorizationCode,
           state);

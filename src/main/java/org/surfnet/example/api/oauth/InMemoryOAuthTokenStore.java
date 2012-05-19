@@ -35,6 +35,7 @@ public class InMemoryOAuthTokenStore implements OAuthTokenStore<AccessToken, Cli
 
   private final Map<String, ClientDetails> accessTokens = new HashMap<String, ClientDetails>();
   private final Map<String, ClientDetails> codes = new HashMap<String, ClientDetails>();
+  
   private final String clientId = "university-client-key";
   private final String clientSecret = "university-client-key";
 
@@ -50,7 +51,7 @@ public class InMemoryOAuthTokenStore implements OAuthTokenStore<AccessToken, Cli
   @Override
   public Optional<ClientDetails> getClientDetailsByAccessToken(String accessToken) {
     ClientDetails clientDetails = accessTokens.get(accessToken);
-    return clientDetails != null ? Optional.of(clientDetails) : Optional.fromNullable(clientDetails);
+    return safeOptional(clientDetails);
   }
 
   @Override
@@ -65,7 +66,7 @@ public class InMemoryOAuthTokenStore implements OAuthTokenStore<AccessToken, Cli
   @Override
   public Optional<ClientDetails> getClientDetailsByAuthorizationCode(String code) {
     ClientDetails clientDetails = codes.get(code);
-    return clientDetails != null ? Optional.of(clientDetails) : Optional.fromNullable(clientDetails);
+    return safeOptional(clientDetails);
   }
 
   private void verifyClientId(ClientDetails clientDetails) {
@@ -83,6 +84,10 @@ public class InMemoryOAuthTokenStore implements OAuthTokenStore<AccessToken, Cli
     if (!clientSecret.equalsIgnoreCase(secret)) {
       throw new ClientAuthenticationException(String.format("invalid secret", secret));
     }
+  }
+
+  private Optional<ClientDetails> safeOptional(ClientDetails clientDetails) {
+    return clientDetails != null ? Optional.of(clientDetails) : Optional.fromNullable(clientDetails);
   }
 
 }

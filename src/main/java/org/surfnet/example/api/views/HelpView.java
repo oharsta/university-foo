@@ -16,32 +16,23 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.surfnet.example.api.resources;
+package org.surfnet.example.api.views;
 
-import com.yammer.metrics.core.HealthCheck;
+import com.yammer.dropwizard.views.View;
 
 /**
- * {@link HealthCheck} that currently does not check anything (but does ensures
- * we don't get the annoying startup message that we don't have HealthChecks;-)
+ * Help Page
  * 
  */
-public class StudentHealthCheck extends HealthCheck {
+public class HelpView extends View {
+
 
   /**
-   * @param name
+   * 
    */
-  public StudentHealthCheck(String name) {
-    super(name);
+  public HelpView() {
+    super("help.ftl");
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see com.yammer.metrics.core.HealthCheck#check()
-   */
-  @Override
-  protected Result check() throws Exception {
-    return Result.healthy();
-  }
 
 }
