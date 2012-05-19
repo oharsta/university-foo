@@ -76,6 +76,9 @@ public class InMemoryOAuthTokenStore implements OAuthTokenStore<AccessToken, Cli
 
   private void verifyClientSecret(ClientDetails clientDetails) {
     String secret = clientDetails.getSecret();
+    /*
+     * Secret can be optional (for example when implementing Implicit Grant)
+     */
     secret = (secret != null ? secret : clientSecret);
     if (!clientSecret.equalsIgnoreCase(secret)) {
       throw new ClientAuthenticationException(String.format("invalid secret", secret));

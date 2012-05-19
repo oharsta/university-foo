@@ -18,19 +18,23 @@
  */
 package org.surfnet.example.api.oauth;
 
-
 /**
  * Responsible for retrieving Principals.
  * 
- * @param <P> the principal type
- * @param <C> the credentials type
+ * @param <P>
+ *          the principal type
+ * @param <C>
+ *          the credentials type
  */
 public interface PrincipalService<P, C> {
 
   /**
-   * Get the Principal information based on the identifier/ password in the credentials
+   * Get the Principal information based on the identifier/ password in the
+   * credentials
    * 
-   * @param c the credentials (e.g. username and password or some other type of authentication)
+   * @param c
+   *          the credentials (e.g. username and password or some other type of
+   *          authentication)
    * @return the Principal
    */
   P getPrincipal(C c);

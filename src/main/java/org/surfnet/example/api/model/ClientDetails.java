@@ -75,8 +75,9 @@ public class ClientDetails {
   }
 
   /**
-   * @param responseType the responseType to set
-   * @return 
+   * @param responseType
+   *          the responseType to set
+   * @return
    */
   public ClientDetails setResponseType(String responseType) {
     this.responseType = responseType;
@@ -84,8 +85,9 @@ public class ClientDetails {
   }
 
   /**
-   * @param clientId the clientId to set
-   * @return 
+   * @param clientId
+   *          the clientId to set
+   * @return
    */
   public ClientDetails setClientId(String clientId) {
     this.clientId = clientId;
@@ -93,8 +95,9 @@ public class ClientDetails {
   }
 
   /**
-   * @param redirectUri the redirectUri to set
-   * @return 
+   * @param redirectUri
+   *          the redirectUri to set
+   * @return
    */
   public ClientDetails setRedirectUri(String redirectUri) {
     this.redirectUri = redirectUri;
@@ -102,8 +105,9 @@ public class ClientDetails {
   }
 
   /**
-   * @param scope the scope to set
-   * @return 
+   * @param scope
+   *          the scope to set
+   * @return
    */
   public ClientDetails setScope(String scope) {
     this.scope = scope;
@@ -111,8 +115,9 @@ public class ClientDetails {
   }
 
   /**
-   * @param state the state to set
-   * @return 
+   * @param state
+   *          the state to set
+   * @return
    */
   public ClientDetails setState(String state) {
     this.state = state;
@@ -120,8 +125,9 @@ public class ClientDetails {
   }
 
   /**
-   * @param code the code to set
-   * @return 
+   * @param code
+   *          the code to set
+   * @return
    */
   public ClientDetails setCode(String code) {
     this.code = code;
@@ -136,8 +142,9 @@ public class ClientDetails {
   }
 
   /**
-   * @param principal the principal to set
-   * @return 
+   * @param principal
+   *          the principal to set
+   * @return
    */
   public ClientDetails setPrincipal(Object principal) {
     this.principal = principal;
@@ -152,8 +159,9 @@ public class ClientDetails {
   }
 
   /**
-   * @param secret the secret to set
-   * @return 
+   * @param secret
+   *          the secret to set
+   * @return
    */
   public ClientDetails setSecret(String secret) {
     this.secret = secret;

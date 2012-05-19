@@ -45,7 +45,7 @@ import com.yammer.dropwizard.logging.Log;
 public class OAuthAccessTokenResource {
 
   private final OAuthTokenStore<AccessToken, ClientDetails, String> tokenStore;
-  
+
   private static final Log LOG = Log.forClass(OAuthAccessTokenResource.class);
 
   public OAuthAccessTokenResource(OAuthTokenStore<AccessToken, ClientDetails, String> tokenStore) {
@@ -77,7 +77,7 @@ public class OAuthAccessTokenResource {
     Optional<ClientDetails> opt = tokenStore.getClientDetailsByAuthorizationCode(code);
     if (opt.isPresent()) {
       ClientDetails clientDetails = opt.get();
-      LOG.debug("Handing out access token for client {} with secret",clientId,secret);
+      LOG.debug("Handing out access token for client {} with secret {}", clientId, secret);
       return tokenStore.storeAccessToken(clientDetails);
     }
     throw new WebApplicationException(Response.status(Response.Status.UNAUTHORIZED).entity("Invalid authorization")

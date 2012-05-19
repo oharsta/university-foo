@@ -18,7 +18,7 @@
  */
 package org.surfnet.example.api.oauth;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.apache.http.auth.UsernamePasswordCredentials;
 import org.junit.Test;
@@ -31,14 +31,16 @@ import org.surfnet.example.api.model.Student;
 public class JsonPrincipalServiceTest {
 
   private final JsonPrincipalService service = new JsonPrincipalService();
-  
+
   /**
-   * Test method for {@link org.surfnet.example.api.oauth.JsonPrincipalService#getPrincipal(org.apache.http.auth.UsernamePasswordCredentials)}.
+   * Test method for
+   * {@link org.surfnet.example.api.oauth.JsonPrincipalService#getPrincipal(org.apache.http.auth.UsernamePasswordCredentials)}
+   * .
    */
   @Test
   public void testGetPrincipal() {
-    Student principal = service.getPrincipal(new UsernamePasswordCredentials("foo8","doen-not-matter"));
-    assertEquals("foo8",principal.getIdentifier());
+    Student principal = service.getPrincipal(new UsernamePasswordCredentials("foo8", "doen-not-matter"));
+    assertEquals("foo8", principal.getIdentifier());
   }
 
 }

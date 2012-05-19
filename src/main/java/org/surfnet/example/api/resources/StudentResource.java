@@ -24,23 +24,35 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.apache.http.auth.UsernamePasswordCredentials;
 import org.surfnet.example.api.model.ClientDetails;
 import org.surfnet.example.api.model.Student;
+import org.surfnet.example.api.oauth.PrincipalService;
 
 import com.yammer.dropwizard.auth.Auth;
-import com.yammer.dropwizard.jersey.params.LongParam;
 
 /**
  * Serves up resources
- *
+ * 
  */
 @Path("/student/{studentIdentifier}")
 @Produces(MediaType.APPLICATION_JSON)
 public class StudentResource {
 
-    @GET
-    public Student getStudent(@Auth ClientDetails clientDetails, @PathParam("studentIdentifier") String studentIdentifier) {
-        return new Student(studentIdentifier.toString(),clientDetails.getClientId());
-    }
+  private PrincipalService<Student, UsernamePasswordCredentials> principalService;
+
+  /**
+   * @param principalService
+   */
+  public StudentResource(PrincipalService<Student, UsernamePasswordCredentials> principalService) {
+    this.principalService = principalService;
+  }
+
+  @GET
+  public Student getStudent(@Auth
+  ClientDetails clientDetails, @PathParam("studentIdentifier")
+  String studentIdentifier) {
+    return principalService.getPrincipal(new UsernamePasswordCredentials(studentIdentifier, "not-used"));
+  }
 
 }

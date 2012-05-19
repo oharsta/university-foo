@@ -49,7 +49,7 @@ public class UniversityFooService extends Service<UniversityFooConfiguration> {
    */
   public static void main(String[] args) throws Exception {
     if (args == null || args.length != 2) {
-      args = new String[]{"server","university-foo-dev.yml"};
+      args = new String[] { "server", "university-foo-dev.yml" };
     }
     new UniversityFooService().run(args);
   }
@@ -75,13 +75,14 @@ public class UniversityFooService extends Service<UniversityFooConfiguration> {
     /*
      * Add a OAuth Provider to secure REST endpoints
      */
-    environment.addProvider(new OAuthProvider<ClientDetails>(new OAuthAuthenticator(tokenStore), "protected-resources"));
+    environment
+        .addProvider(new OAuthProvider<ClientDetails>(new OAuthAuthenticator(tokenStore), "protected-resources"));
     environment.addHealthCheck(new StudentHealthCheck("student"));
 
     /*
      * Add all university Resources
      */
-    environment.addResource(new StudentResource());
+    environment.addResource(new StudentResource(principalService));
 
     /*
      * The OAuth endpoint for obtaining an access token

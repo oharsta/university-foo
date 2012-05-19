@@ -18,7 +18,6 @@
  */
 package org.surfnet.example.api.oauth;
 
-import java.io.InputStream;
 import java.util.List;
 
 import org.apache.http.auth.UsernamePasswordCredentials;
