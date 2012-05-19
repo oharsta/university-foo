@@ -10,17 +10,15 @@ Included with this application is an in-memory implementation of a OAuth2 Provid
 
 To bootstrap the example application run the following commands.
 
-* To package the example run.
+* To package the example run (maven3 is a prerequisite to install the university-foo app).
 
         mvn package
 
 * To run the server run (in debug mode).
 
-        java -jar -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000 target/rest-example-1.0-SNAPSHOT.jar server university-foo-dev.yml 
+        java -jar -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000 target/university-foo-0.1-SNAPSHOT.jar server university-foo-dev.yml 
 
-* To run the server in your IDE 
-
-        run the application class src/main/java/org/surfnet/example/api/UniversityFooService.java 
+* To run the server in your IDE simply run the application class src/main/java/org/surfnet/example/api/UniversityFooService.java 
 
 # Testing The Application
 
