@@ -18,6 +18,10 @@ To bootstrap the example application run the following commands.
 
         java -jar -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000 target/rest-example-1.0-SNAPSHOT.jar server university-foo-dev.yml 
 
+* To run the server in your IDE 
+
+        run the application class src/main/java/org/surfnet/example/api/UniversityFooService.java 
+
 # Testing The Application
 
 To test the application you will need an OAuth2 client. The https://github.com/OpenConext/Mujina/tree/master/mujina-sp application can be used to test the OAuth provider in
@@ -37,6 +41,6 @@ To authenticate an user the identifiers foo1...10 can be used with a fake passwo
 
 * The university-foo OAuth provider currently only support the Authorization Code Grant flow (e.g. Implicit Grant and other flows are not supported).
 * The absence of a consent dialog when authentication succeeds.
-* The enforcement that a REST call can only access the data for the student that authorized the client application is not implemented
-* The API currently is very limited and only supports accessing student profile
-* There is elaborate help section (analogue to http://developer.yammer.com/api/oauth2.html) 
+* The application does not enforce that a REST call can only access the data for the student that authorized the client application
+* The API currently is very limited and only supports accessing student profiles
+* There is no elaborate help section (analogue to http://developer.yammer.com/api/oauth2.html) 
