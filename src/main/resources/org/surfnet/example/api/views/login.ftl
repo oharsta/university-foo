@@ -14,11 +14,10 @@
 		<div class="row">
 			<div class="span8">
 				<form class="form-horizontal" id="registerHere" method="post"
-					action="/authorize">
+					action="/v1/authorize">
 					<fieldset>
 
-						<legend>Login with Student identifier and Password</legend>
-						<p class="help-block">Hint: foo1 - foo10</p>
+						<legend>Login with your student identifier and password</legend>
 						
 						<div class="control-group">
 							<label class="control-label">Student ID</label>
@@ -27,6 +26,8 @@
 									name="username" rel="popover"
 									data-content="Enter your student ID."
 									data-original-title="Student ID">
+								<p class="help-block">Hint: foo1 - foo10</p>
+									
 							</div>
 						</div>
 						<div class="control-group">

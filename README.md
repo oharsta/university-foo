@@ -29,11 +29,14 @@ The OAuth2 configuration for the university-foo application is:
  
 * OAuth key: university-client-key
 * OAuth secret: university-client-secret 
-* AccessToken URL: http://localhost:8080/token
-* Authorization URL: http://localhost:8080/authorize
-* API Request: http://localhost:8080/student/identifier
+* AccessToken URL: http://localhost:8080/v1/token
+* Authorization URL: http://localhost:8080/v1/authorize
+* API Request: http://localhost:8080/v1/student/{identifier}
+* API Request: http://localhost:8080/v1/student/@me
 
-To authenticate an user the identifiers foo1...10 can be used with a fake password.
+To authenticate an user the identifiers foo1...10 can be used with a fake password. The placeholder help page can be found at:
+
+* http://localhost:8080/v1/help
 
 # Limitations
 
@@ -42,3 +45,4 @@ To authenticate an user the identifiers foo1...10 can be used with a fake passwo
 * The application does not enforce that a REST call can only access the data for the student that authorized the client application
 * The API currently is very limited and only supports accessing student profiles
 * There is no elaborate help section (analogue to http://developer.yammer.com/api/oauth2.html) 
+* The university-foo currently has no client registration support (client_id, secret, logo, name and redirect_uri)

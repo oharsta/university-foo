@@ -52,6 +52,9 @@ public class StudentResource {
   public Student getStudent(@Auth
   ClientDetails clientDetails, @PathParam("studentIdentifier")
   String studentIdentifier) {
+    if ("@me".equalsIgnoreCase(studentIdentifier)) {
+      studentIdentifier = ((Student)clientDetails.getPrincipal()).getIdentifier();
+    }
     return principalService.getPrincipal(new UsernamePasswordCredentials(studentIdentifier, "not-used"));
   }
 

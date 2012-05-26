@@ -23,19 +23,25 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import org.surfnet.example.api.views.HelpView;
+import com.yammer.dropwizard.views.View;
 
 /**
  * Help freemarker endpoint
  *
  */
-@Path("/help")
+@Path("help")
 @Produces(MediaType.TEXT_HTML)
 public class HelpResource {
 
-  
   @GET
-  public HelpView help() {
+  public View help() {
     return new HelpView();
+  }
+
+  class HelpView extends View {
+    HelpView() {
+      super("help.ftl");
+    }
+    
   }
 }
