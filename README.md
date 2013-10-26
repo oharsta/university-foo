@@ -2,6 +2,8 @@
 
 The drop wizard university-foo application was developed to showcase the use of OAuth2 and provide a basic - yet dummy - REST interface for demo and workshop purposes.
 
+It resulted in the full-blown - production running - framework [apis](https://github.com/OpenConextApps/apis).
+
 # Overview
 
 Included with this application is an in-memory implementation of a OAuth2 Provider to grant access tokens (something missing in the DropWizard example codebase)
